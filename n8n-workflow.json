@@ -1,0 +1,183 @@
+{
+  "name": "Chipre - Form to Sheets + Send Guides",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "chipre-form",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-node",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [250, 300],
+      "webhookId": "chipre-form"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "field-nombre",
+              "name": "nombre",
+              "value": "={{ $json.body.nombre }}",
+              "type": "string"
+            },
+            {
+              "id": "field-email",
+              "name": "email",
+              "value": "={{ $json.body.email }}",
+              "type": "string"
+            },
+            {
+              "id": "field-telefono",
+              "name": "telefono",
+              "value": "={{ $json.body.telefono }}",
+              "type": "string"
+            },
+            {
+              "id": "field-ingresos",
+              "name": "ingresos",
+              "value": "={{ $json.body.ingresos }}",
+              "type": "string"
+            },
+            {
+              "id": "field-fecha",
+              "name": "fecha",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-fields-node",
+      "name": "Set Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [470, 300]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Sheet1",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {}
+        },
+        "options": {}
+      },
+      "id": "google-sheets-node",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [690, 300],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "YOUR_FROM_EMAIL@domain.com",
+        "toEmail": "={{ $('Set Fields').item.json.email }}",
+        "subject": "Tu análisis Chipre vs Andorra 2026 + Guía de reubicación",
+        "emailType": "html",
+        "html": "<div style=\"font-family: 'Inter', Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #3b2314;\">\n  <div style=\"background: linear-gradient(135deg, #fdf5ed, #fef3e2); padding: 2rem; border-radius: 12px 12px 0 0;\">\n    <h1 style=\"color: #c2590a; margin: 0 0 0.5rem;\">¡Hola {{ $('Set Fields').item.json.nombre }}!</h1>\n    <p style=\"margin: 0; color: #7a6455;\">Aquí tienes tus guías gratuitas.</p>\n  </div>\n  <div style=\"padding: 2rem; background: #fffbf7; border: 1px solid #e8ddd3; border-top: none; border-radius: 0 0 12px 12px;\">\n    <p>Tal como te prometimos, adjuntamos los 2 documentos:</p>\n    <ol style=\"color: #7a6455; line-height: 1.8;\">\n      <li><strong>Análisis completo Chipre vs Andorra 2026</strong> — Comparativa fiscal + coste de vida real</li>\n      <li><strong>Guía de reubicación a Chipre</strong> — Todo lo que necesitas para dar el salto</li>\n    </ol>\n    <p style=\"margin-top: 1.5rem;\">Si tienes cualquier duda o quieres que analicemos tu caso concreto, responde a este email y te ayudamos sin compromiso.</p>\n    <p style=\"margin-top: 1.5rem; color: #7a6455; font-size: 0.9em;\">Un saludo,<br><strong>Equipo Chipre</strong></p>\n  </div>\n</div>",
+        "options": {
+          "attachments": "analisis-chipre-vs-andorra-2026.pdf,guia-reubicacion-chipre.pdf"
+        }
+      },
+      "id": "send-email-node",
+      "name": "Send Email with Guides",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [910, 300],
+      "credentials": {
+        "smtp": {
+          "id": "YOUR_SMTP_CREDENTIAL_ID",
+          "name": "SMTP account"
+        }
+      },
+      "notes": "Configure SMTP credentials and place the 2 PDF files in the n8n files directory: analisis-chipre-vs-andorra-2026.pdf and guia-reubicacion-chipre.pdf"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"success\": true, \"message\": \"Datos recibidos correctamente\" }",
+        "options": {}
+      },
+      "id": "response-node",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1130, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Set Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Fields": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Send Email with Guides",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Email with Guides": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": ""
+  }
+}

@@ -1,0 +1,835 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Precios de Alquiler: Chipre vs Andorra — Chipre">
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="logo">Chipre</a>
+      <ul class="nav-links">
+        <li><a href="/#servicios">Servicios</a></li>
+        <li><a href="/#ventajas">Ventajas</a></li>
+        <li><a href="/alquileres" class="active">Alquileres</a></li>
+        <li><a href="/#contacto" class="btn btn-sm">Contactar</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <span class="section-badge">Comparativa 2025</span>
+      <h1>Precios de Alquiler: <span class="highlight">Chipre</span> vs Andorra</h1>
+      <p class="page-sub">Datos reales del mercado para que tomes la mejor decisión.</p>
+    </div>
+  </header>
+
+  <!-- KEY FINDING -->
+  <section class="section">
+    <div class="container">
+      <div class="highlight-box">
+        <h3>Hallazgo Clave</h3>
+        <p>En Chipre puedes alquilar un apartamento de 1 habitación por <strong>500-800 EUR/mes</strong></p>
+        <p>En Andorra, el mismo tipo de vivienda cuesta <strong>1.100-1.500 EUR/mes</strong></p>
+        <p class="highlight-big"><strong>Ahorro: 35-50% en Chipre</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE CARDS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="stats-grid">
+        <!-- ANDORRA -->
+        <div class="stat-card">
+          <h3 class="card-title andorra-title">Andorra — Rangos de Precios</h3>
+          <div class="price-row">
+            <span class="price-label">Estudio/Habitación</span>
+            <span class="price-value andorra">500-900 EUR/mes</span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">1 habitación</span>
+            <span class="price-value andorra">1.100-1.500 EUR/mes</span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">2 habitaciones</span>
+            <span class="price-value andorra">1.400-2.100 EUR/mes</span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">3 habitaciones</span>
+            <span class="price-value andorra">2.100-2.600 EUR/mes</span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">Precio promedio</span>
+            <span class="price-value andorra">2.833 EUR/mes</span>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> Según datos de Pisos.ad (Q4 2024) y Global Property Guide (Enero 2025). El mercado andorrano tiene muy alta demanda y oferta limitada.
+          </div>
+        </div>
+
+        <!-- CHIPRE -->
+        <div class="stat-card">
+          <h3 class="card-title chipre-title">Chipre — Rangos de Precios</h3>
+          <div class="price-row">
+            <span class="price-label">Estudio</span>
+            <span class="price-value chipre">450-800 EUR/mes</span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">1 habitación</span>
+            <span class="price-value chipre">500-900 EUR/mes</span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">2 habitaciones</span>
+            <span class="price-value chipre">700-1.450 EUR/mes</span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">3 habitaciones</span>
+            <span class="price-value chipre">1.200-2.200 EUR/mes</span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">Precio promedio (Limassol)</span>
+            <span class="price-value chipre">900-1.200 EUR/mes</span>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> Según Bazaraki.com (2025) y análisis del mercado. Precios más bajos en Nicosia, Larnaca y Paphos comparado con Limassol.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHARTS -->
+  <section class="section">
+    <div class="container">
+      <div class="chart-wrapper">
+        <canvas id="distributionChart"></canvas>
+      </div>
+      <div class="chart-wrapper">
+        <canvas id="comparisonChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="section section-alt">
+    <div class="container">
+      <span class="section-badge">Detalle</span>
+      <h2 class="section-title">Tabla Comparativa</h2>
+      <div class="table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Tipo de Vivienda</th>
+              <th>Andorra (Rango)</th>
+              <th>Chipre (Rango)</th>
+              <th>Ahorro Mensual</th>
+              <th>Ahorro Anual</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Estudio</strong></td>
+              <td>770-900 EUR</td>
+              <td>450-800 EUR</td>
+              <td class="chipre">170-320 EUR</td>
+              <td class="chipre">2.040-3.840 EUR</td>
+            </tr>
+            <tr>
+              <td><strong>1 habitación</strong></td>
+              <td>1.100-1.500 EUR</td>
+              <td>500-900 EUR</td>
+              <td class="chipre">400-700 EUR</td>
+              <td class="chipre">4.800-8.400 EUR</td>
+            </tr>
+            <tr>
+              <td><strong>2 habitaciones</strong></td>
+              <td>1.400-2.100 EUR</td>
+              <td>700-1.450 EUR</td>
+              <td class="chipre">450-700 EUR</td>
+              <td class="chipre">5.400-8.400 EUR</td>
+            </tr>
+            <tr>
+              <td><strong>3 habitaciones</strong></td>
+              <td>2.100-2.600 EUR</td>
+              <td>1.200-2.200 EUR</td>
+              <td class="chipre">400-900 EUR</td>
+              <td class="chipre">4.800-10.800 EUR</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCATTER CHART -->
+  <section class="section">
+    <div class="container">
+      <div class="chart-wrapper">
+        <canvas id="scatterChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- GESTORIA COSTS -->
+  <section class="section section-alt">
+    <div class="container">
+      <span class="section-badge">Costes fijos</span>
+      <h2 class="section-title">Costes de Gestoría</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3 class="card-title andorra-title">Andorra</h3>
+          <div class="price-row">
+            <span class="price-label">Gestoría mensual</span>
+            <span class="price-value andorra">180 EUR/mes</span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">Gestoría anual</span>
+            <span class="price-value andorra">2.160 EUR/año</span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">Cuota autónomo</span>
+            <span class="price-value andorra">500 EUR/mes (6.000 EUR/año)</span>
+          </div>
+          <div class="price-row total-row andorra-bg">
+            <span class="price-label"><strong>TOTAL FIJOS</strong></span>
+            <span class="price-value andorra"><strong>8.160 EUR/año</strong></span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <h3 class="card-title chipre-title">Chipre</h3>
+          <div class="price-row">
+            <span class="price-label">Gestoría mensual</span>
+            <span class="price-value chipre">100-150 EUR/mes</span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">Gestoría anual</span>
+            <span class="price-value chipre">1.200-1.800 EUR/año</span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">Cuota autónomo</span>
+            <span class="price-value chipre">0 EUR/mes (0 EUR/año)</span>
+          </div>
+          <div class="price-row total-row chipre-bg">
+            <span class="price-label"><strong>TOTAL FIJOS</strong></span>
+            <span class="price-value chipre"><strong>1.200-1.800 EUR/año</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box" style="margin-top: 2rem;">
+        <h3>Ahorro en Costes Fijos de Gestoría</h3>
+        <p><strong>6.360-6.960 EUR al año</strong></p>
+        <p>Esto representa un 78-85% de ahorro en costes administrativos obligatorios</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container" style="text-align: center;">
+      <h2 class="section-title">¿Listo para ahorrar?</h2>
+      <p class="page-sub" style="margin-bottom: 2rem;">Solicita tu consulta gratuita y te ayudamos con todo el proceso.</p>
+      <a href="/#contacto" class="btn btn-primary">Solicita información</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="/" class="logo">Chipre</a>
+      <p>&copy; {new Date().getFullYear()} Chipre. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</Layout>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<script>
+  const andorraListings = [
+    { price: 770, type: "Estudio" },
+    { price: 800, type: "Estudio" },
+    { price: 850, type: "Estudio" },
+    { price: 900, type: "1 hab" },
+    { price: 1100, type: "1 hab" },
+    { price: 1200, type: "1 hab" },
+    { price: 1300, type: "1 hab" },
+    { price: 1400, type: "2 hab" },
+    { price: 1450, type: "2 hab" },
+    { price: 1500, type: "1 hab" },
+    { price: 1600, type: "2 hab" },
+    { price: 1700, type: "2 hab" },
+    { price: 1800, type: "2 hab" },
+    { price: 1900, type: "2 hab" },
+    { price: 2000, type: "2 hab" },
+    { price: 2100, type: "2 hab" },
+    { price: 2200, type: "3 hab" },
+    { price: 2300, type: "3 hab" },
+    { price: 2400, type: "3 hab" },
+    { price: 2500, type: "3 hab" },
+    { price: 2600, type: "3 hab" },
+    { price: 2800, type: "3 hab" },
+    { price: 3000, type: "3+ hab" },
+    { price: 3200, type: "3+ hab" },
+    { price: 3500, type: "3+ hab" },
+  ];
+
+  const chipreListings = [
+    { price: 450, type: "Estudio" },
+    { price: 500, type: "Estudio" },
+    { price: 550, type: "Estudio" },
+    { price: 600, type: "1 hab" },
+    { price: 630, type: "Estudio" },
+    { price: 650, type: "1 hab" },
+    { price: 690, type: "Estudio" },
+    { price: 700, type: "2 hab" },
+    { price: 750, type: "1 hab" },
+    { price: 770, type: "Estudio" },
+    { price: 800, type: "1 hab" },
+    { price: 850, type: "1 hab" },
+    { price: 900, type: "2 hab" },
+    { price: 950, type: "1 hab" },
+    { price: 1000, type: "2 hab" },
+    { price: 1100, type: "2 hab" },
+    { price: 1200, type: "3 hab" },
+    { price: 1250, type: "2 hab" },
+    { price: 1300, type: "2 hab" },
+    { price: 1400, type: "2 hab" },
+    { price: 1450, type: "2 hab" },
+    { price: 1500, type: "3 hab" },
+    { price: 1700, type: "3 hab" },
+    { price: 1800, type: "3 hab" },
+    { price: 2000, type: "3 hab" },
+    { price: 2200, type: "3 hab" },
+    { price: 2300, type: "3+ hab" },
+    { price: 2900, type: "3+ hab" },
+  ];
+
+  const andorraAvg =
+    andorraListings.reduce((a, b) => a + b.price, 0) / andorraListings.length;
+  const chipreAvg =
+    chipreListings.reduce((a, b) => a + b.price, 0) / chipreListings.length;
+
+  // Distribution histogram
+  const andorraRanges = [0, 0, 0, 0, 0, 0];
+  const chipreRanges = [0, 0, 0, 0, 0, 0];
+
+  andorraListings.forEach((l) => {
+    if (l.price < 800) andorraRanges[0]++;
+    else if (l.price < 1200) andorraRanges[1]++;
+    else if (l.price < 1600) andorraRanges[2]++;
+    else if (l.price < 2000) andorraRanges[3]++;
+    else if (l.price < 2500) andorraRanges[4]++;
+    else andorraRanges[5]++;
+  });
+
+  chipreListings.forEach((l) => {
+    if (l.price < 800) chipreRanges[0]++;
+    else if (l.price < 1200) chipreRanges[1]++;
+    else if (l.price < 1600) chipreRanges[2]++;
+    else if (l.price < 2000) chipreRanges[3]++;
+    else if (l.price < 2500) chipreRanges[4]++;
+    else chipreRanges[5]++;
+  });
+
+  // @ts-ignore
+  const Chart = window.Chart;
+
+  new Chart(document.getElementById("distributionChart"), {
+    type: "bar",
+    data: {
+      labels: [
+        "<800€",
+        "800-1.200€",
+        "1.200-1.600€",
+        "1.600-2.000€",
+        "2.000-2.500€",
+        ">2.500€",
+      ],
+      datasets: [
+        {
+          label: "Andorra",
+          data: andorraRanges,
+          backgroundColor: "#ef4444",
+          borderColor: "#dc2626",
+          borderWidth: 2,
+        },
+        {
+          label: "Chipre",
+          data: chipreRanges,
+          backgroundColor: "#22c55e",
+          borderColor: "#16a34a",
+          borderWidth: 2,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        title: {
+          display: true,
+          text: "Distribución de Precios por Rango",
+          font: { size: 16, weight: "bold" },
+          padding: 16,
+        },
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: "Rango de Precio",
+            font: { weight: "bold" },
+          },
+        },
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: "Cantidad de Anuncios",
+            font: { weight: "bold" },
+          },
+          ticks: { stepSize: 1 },
+        },
+      },
+    },
+  });
+
+  // Comparison by housing type
+  new Chart(document.getElementById("comparisonChart"), {
+    type: "bar",
+    data: {
+      labels: ["Estudio", "1 Habitación", "2 Habitaciones", "3 Habitaciones"],
+      datasets: [
+        {
+          label: "Andorra — Precio Medio",
+          data: [835, 1300, 1750, 2350],
+          backgroundColor: "#ef4444",
+          borderColor: "#dc2626",
+          borderWidth: 2,
+        },
+        {
+          label: "Chipre — Precio Medio",
+          data: [625, 725, 1075, 1700],
+          backgroundColor: "#22c55e",
+          borderColor: "#16a34a",
+          borderWidth: 2,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        title: {
+          display: true,
+          text: "Precio Medio por Tipo de Vivienda",
+          font: { size: 16, weight: "bold" },
+          padding: 16,
+        },
+        tooltip: {
+          callbacks: {
+            label: (ctx: any) =>
+              ctx.dataset.label +
+              ": €" +
+              ctx.parsed.y.toLocaleString("es-ES") +
+              "/mes",
+          },
+        },
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: "Tipo de Vivienda",
+            font: { weight: "bold" },
+          },
+        },
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: "Precio Mensual (€)",
+            font: { weight: "bold" },
+          },
+          ticks: {
+            callback: (v: number) => "€" + v.toLocaleString("es-ES"),
+          },
+        },
+      },
+    },
+  });
+
+  // Scatter chart
+  new Chart(document.getElementById("scatterChart"), {
+    type: "scatter",
+    data: {
+      datasets: [
+        {
+          label: "Andorra",
+          data: andorraListings.map((l, i) => ({ x: i + 1, y: l.price })),
+          backgroundColor: "rgba(239,68,68,0.6)",
+          borderColor: "#ef4444",
+          pointRadius: 6,
+          pointHoverRadius: 8,
+        },
+        {
+          label: "Chipre",
+          data: chipreListings.map((l, i) => ({ x: i + 1, y: l.price })),
+          backgroundColor: "rgba(34,197,94,0.6)",
+          borderColor: "#22c55e",
+          pointRadius: 6,
+          pointHoverRadius: 8,
+        },
+        {
+          label: "Media Andorra (€" + Math.round(andorraAvg) + ")",
+          data: [
+            { x: 0, y: andorraAvg },
+            { x: 30, y: andorraAvg },
+          ],
+          borderColor: "#dc2626",
+          borderWidth: 2,
+          borderDash: [10, 5],
+          pointRadius: 0,
+          type: "line",
+          fill: false,
+        },
+        {
+          label: "Media Chipre (€" + Math.round(chipreAvg) + ")",
+          data: [
+            { x: 0, y: chipreAvg },
+            { x: 30, y: chipreAvg },
+          ],
+          borderColor: "#16a34a",
+          borderWidth: 2,
+          borderDash: [10, 5],
+          pointRadius: 0,
+          type: "line",
+          fill: false,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        title: {
+          display: true,
+          text: "Distribución de Anuncios: Cada Punto es un Alquiler Real",
+          font: { size: 16, weight: "bold" },
+          padding: 16,
+        },
+        tooltip: {
+          callbacks: {
+            label: (ctx: any) => {
+              const ds = ctx.dataset.label;
+              if (ds.includes("Media")) return ds + ": €" + ctx.parsed.y.toFixed(0);
+              const list = ds.includes("Andorra")
+                ? andorraListings
+                : chipreListings;
+              const item = list[ctx.dataIndex];
+              return ds + ": €" + item.price + " (" + item.type + ")";
+            },
+          },
+        },
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: "Número de Anuncio",
+            font: { weight: "bold" },
+          },
+          min: 0,
+          max: 30,
+        },
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: "Precio Mensual (€)",
+            font: { weight: "bold" },
+          },
+          ticks: {
+            callback: (v: number) => "€" + v.toLocaleString("es-ES"),
+          },
+        },
+      },
+    },
+  });
+</script>
+
+<style>
+  /* NAV (shared) */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--color-primary);
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--color-primary);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  .btn-primary {
+    background: var(--color-primary);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: var(--color-primary-dark);
+  }
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 7rem 0 3rem;
+    text-align: center;
+  }
+  .page-header h1 {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+  .highlight {
+    color: var(--color-primary);
+  }
+  .page-sub {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .section-badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1.25rem;
+  }
+  .section {
+    padding: 4rem 0;
+  }
+  .section-alt {
+    background: var(--color-bg-alt);
+  }
+  .section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #4338ca 100%);
+    color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+  .highlight-box h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  .highlight-box p {
+    font-size: 1rem;
+    margin: 0.35rem 0;
+  }
+  .highlight-big {
+    font-size: 1.25rem !important;
+    margin-top: 1rem !important;
+  }
+
+  /* STATS GRID & CARDS */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.5rem;
+  }
+  .stat-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.75rem;
+  }
+  .card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid var(--color-border);
+  }
+  .andorra-title {
+    border-bottom-color: #ef4444;
+  }
+  .chipre-title {
+    border-bottom-color: #22c55e;
+  }
+
+  /* PRICE ROWS */
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    margin: 0.5rem 0;
+    background: var(--color-bg-alt);
+    border-radius: 6px;
+    border-left: 4px solid var(--color-primary);
+  }
+  .price-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+  }
+  .price-value {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .andorra {
+    color: #ef4444;
+  }
+  .chipre {
+    color: #16a34a;
+  }
+  .total-row.andorra-bg {
+    background: #fef2f2;
+    border-left-color: #ef4444;
+  }
+  .total-row.chipre-bg {
+    background: #f0fdf4;
+    border-left-color: #16a34a;
+  }
+
+  /* NOTE */
+  .note {
+    background: #fffbeb;
+    border-left: 4px solid #f59e0b;
+    padding: 0.85rem 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+  }
+  .note strong {
+    color: #92400e;
+  }
+
+  /* CHARTS */
+  .chart-wrapper {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .chart-wrapper canvas {
+    max-height: 450px;
+  }
+
+  /* TABLE */
+  .table-wrapper {
+    overflow-x: auto;
+  }
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .comparison-table th,
+  .comparison-table td {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.9rem;
+  }
+  .comparison-table th {
+    background: var(--color-primary);
+    color: #fff;
+    font-weight: 600;
+  }
+  .comparison-table tr:hover {
+    background: var(--color-bg-alt);
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 2rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer p {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+  }
+
+  @media (max-width: 640px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+    .nav-links {
+      gap: 1rem;
+    }
+    .footer-inner {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  }
+</style>

@@ -1,0 +1,878 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const N8N_WEBHOOK_URL = import.meta.env.PUBLIC_N8N_WEBHOOK_URL ?? "https://YOUR-N8N-INSTANCE.com/webhook/chipre-form";
+---
+
+<Layout title="Chipre — Análisis fiscal Chipre vs Andorra 2026 + Guía de reubicación">
+
+  <!-- 1. NAVBAR — sticky + CTA -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo">Chipre</a>
+      <ul class="nav-links">
+        <li><a href="#comparativa">Comparativa</a></li>
+        <li><a href="#beneficios">Beneficios</a></li>
+        <li><a href="#como-funciona">Cómo funciona</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#formulario" class="btn btn-sm btn-primary" style="color: white;">Recibe la guía gratis</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 2. HERO — USP heading + subheading + CTA + social proof -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <h1>Ahorra hasta <span class="highlight">€8,946/año</span> eligiendo Chipre en vez de Andorra</h1>
+      <p class="hero-sub">
+        Recibe gratis el análisis fiscal completo Chipre vs Andorra 2026
+        y la guía paso a paso para reubicarte. Datos reales de impuestos, alquiler y coste de vida.
+      </p>
+      <div class="hero-actions">
+        <a href="#formulario" class="btn btn-primary btn-lg">Quiero las 2 guías gratis</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. OLD WAY vs NEW WAY — Andorra vs Chipre -->
+  <section id="comparativa" class="section">
+    <div class="container">
+      <span class="section-badge">La decisión que cambia todo</span>
+      <h2 class="section-title">Andorra vs Chipre: la comparativa real</h2>
+      <p class="section-sub">
+        La mayoría asume que Andorra es la mejor opción fiscal. Los números cuentan otra historia.
+      </p>
+      <div class="comparison-grid">
+        <!-- Old Way: Andorra -->
+        <div class="way-card way-old">
+          <span class="way-label">Lo que hacen todos</span>
+          <h3>Andorra</h3>
+          <p class="way-sub">La opción "obvia" que sale más cara</p>
+          <ul class="way-list">
+            <li class="way-pain">€50,000 de depósito NO recuperable</li>
+            <li class="way-pain">Inversión inicial: €58,000-60,000</li>
+            <li class="way-pain">Alquiler 2 hab: mínimo €1,600/mes</li>
+            <li class="way-pain">Con €60k/año te quedan €25,444</li>
+            <li class="way-pain">Fuera de la Unión Europea</li>
+          </ul>
+        </div>
+        <!-- New Way: Chipre -->
+        <div class="way-card way-new">
+          <span class="way-label">La alternativa inteligente</span>
+          <h3>Chipre</h3>
+          <p class="way-sub">Mismas ventajas fiscales, menos costes</p>
+          <ul class="way-list">
+            <li class="way-win">€0 de depósito obligatorio</li>
+            <li class="way-win">Inversión inicial: €5,000-7,000</li>
+            <li class="way-win">Alquiler 2 hab: €1,100/mes</li>
+            <li class="way-win">Con €60k/año te quedan €32,849</li>
+            <li class="way-win">Dentro de la Unión Europea</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. BENEFITS — features tell, benefits sell -->
+  <section id="beneficios" class="section section-alt">
+    <div class="container">
+      <span class="section-badge">Por qué Chipre</span>
+      <h2 class="section-title">Lo que ganas al elegir Chipre</h2>
+      <div class="benefits-grid">
+        <div class="benefit">
+          <div class="benefit-icon">&#127968;</div>
+          <h3>Vivienda 30-45% más barata</h3>
+          <p>Un piso premium de 2 habitaciones cuesta €1,100/mes en Chipre vs €1,600/mes en Andorra. Ahorro de hasta €12,000/año.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">&#128176;</div>
+          <h3>Más dinero disponible cada mes</h3>
+          <p>Con ingresos de €60k/año dispones de €7,405 más al año en Chipre. En el tramo de €36k la ventaja sube a €8,946/año.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">&#127466;&#127482;</div>
+          <h3>Dentro de la Unión Europea</h3>
+          <p>Acceso completo al mercado único, libre circulación, protección legal europea y más de 300 días de sol al año.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. HOW IT WORKS — 3 steps -->
+  <section id="como-funciona" class="section">
+    <div class="container">
+      <span class="section-badge">Así de fácil</span>
+      <h2 class="section-title">¿Cómo funciona?</h2>
+      <p class="section-sub">Recibe la información que necesitas en 3 pasos.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-icon">&#128221;</div>
+          <div class="step-num">Paso 1</div>
+          <h4>Rellena el formulario</h4>
+          <p>Solo necesitamos tu nombre, email y tramo de ingresos. 30 segundos.</p>
+        </div>
+        <div class="step-arrow">&#8594;</div>
+        <div class="step">
+          <div class="step-icon">&#128231;</div>
+          <div class="step-num">Paso 2</div>
+          <h4>Revisa tu email</h4>
+          <p>Recibes al instante el análisis Chipre vs Andorra 2026 y la guía de reubicación.</p>
+        </div>
+        <div class="step-arrow">&#8594;</div>
+        <div class="step">
+          <div class="step-icon">&#9989;</div>
+          <div class="step-num">Paso 3</div>
+          <h4>Toma la mejor decisión</h4>
+          <p>Con datos reales y desglosados podrás comparar y decidir con total claridad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. DATA TABLE (replaces Pricing) — the hard numbers -->
+  <section id="datos" class="section section-alt">
+    <div class="container">
+      <span class="section-badge">Datos reales 2026</span>
+      <h2 class="section-title">Dinero disponible por tramo de ingresos</h2>
+      <p class="section-sub">
+        Incluye impuestos, cotizaciones, gestoría, alquiler y comida. Todo sumado.
+      </p>
+      <div class="table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Ingresos anuales</th>
+              <th>Disponible en Andorra</th>
+              <th>Disponible en Chipre</th>
+              <th>Diferencia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>€36,000</strong></td>
+              <td>€4044 <span class="pct">(11.2%)</span></td>
+              <td class="winner">€12.990 <span class="pct">(36.1%)</span></td>
+              <td class="diff-positive">+€8,946/año</td>
+            </tr>
+            <tr>
+              <td><strong>€60,000</strong></td>
+              <td>€25,444 <span class="pct">(42.4%)</span></td>
+              <td class="winner">€32.849 <span class="pct">(54.7%)</span></td>
+              <td class="diff-positive">+€7,405/año</td>
+            </tr>
+            <tr>
+              <td><strong>€120,000</strong></td>
+              <td>€74.044 <span class="pct">(61.7%)</span></td>
+              <td class="winner">€78.098 <span class="pct">(65.1%)</span></td>
+              <td class="diff-positive">+€4,054/año</td>
+            </tr>
+            <tr>
+              <td><strong>€200,000</strong></td>
+              <td>€137,644 <span class="pct">(68.8%)</span></td>
+              <td class="winner">€141,396 <span class="pct">(70.7%)</span></td>
+              <td class="diff-positive">+€3,752/año</td>
+            </tr>
+            <tr>
+              <td><strong>€500,000</strong></td>
+              <td class="winner">€395.644 <span class="pct">(79.1%)</span></td>
+              <td>€389.180 <span class="pct">(77.8%)</span></td>
+              <td class="diff-positive">+€6,464/año</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">Chipre gana en todos los tramos de ingresos. El desglose completo está en la guía gratuita.</p>
+      <div class="table-cta">
+        <a href="#formulario" class="btn btn-primary">Ver el desglose completo gratis</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section id="faq" class="section">
+    <div class="container">
+      <span class="section-badge">Preguntas frecuentes</span>
+      <h2 class="section-title">FAQ</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>¿Por qué Chipre es más barato que Andorra si el impuesto de sociedades es similar?</summary>
+          <p>Aunque Andorra tiene un 10% y Chipre un 15%, la diferencia real está en los costes de vida: vivienda 30-45% más barata, sin depósito de €50,000 y menores cotizaciones sociales. El análisis gratuito incluye el desglose completo.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Para qué tramos de ingresos conviene Chipre?</summary>
+          <p>Chipre gana en los tramos de €36k a €200k/año, con ventajas de entre €3,752 y €8,946/año. A partir de €500k Andorra recupera algo de ventaja (sin tener en cuenta los 50k iniciales). Los datos completos están en la guía.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Es verdad que Andorra pide €50,000 de depósito?</summary>
+          <p>Sí. Andorra exige un depósito de €50,000 no recuperable como requisito para obtener la residencia. En Chipre el coste total de setup + residencia es de €5,000-7,000.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Chipre está en la Unión Europea?</summary>
+          <p>Sí. Chipre es miembro de la UE desde 2004, lo que significa acceso al mercado único, libre circulación de personas y capitales, y protección legal europea. Andorra no es miembro de la UE y no tiene acceso a servicios como stripe.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Qué recibo exactamente al rellenar el formulario?</summary>
+          <p>Recibes por email 2 documentos PDF: (1) el análisis completo Chipre vs Andorra 2026 con todos los desgloses fiscales y de coste de vida, y (2) la guía de reubicación a Chipre con todo el proceso paso a paso.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Es realmente gratis? ¿Hay algún compromiso?</summary>
+          <p>Totalmente gratis y sin compromiso. Si después quieres ayuda con los trámites, podemos hablarlo. Pero las guías son tuyas sin condiciones.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FINAL CTA — high contrast, action-oriented -->
+  <section id="formulario" class="section section-cta">
+    <div class="container">
+      <h2 class="cta-title">Recibe el análisis completo gratis</h2>
+      <p class="cta-sub">
+        Comparativa fiscal Chipre vs Andorra 2026 + Guía de reubicación a Chipre.
+        Directamente en tu email. Sin spam.
+      </p>
+      <form id="contact-form" class="form" data-webhook={N8N_WEBHOOK_URL}>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000" />
+          </div>
+          <div class="form-group">
+            <label for="ingresos">Tramo de ingresos aproximado</label>
+            <select id="ingresos" name="ingresos" required>
+              <option value="" disabled selected>Selecciona tu tramo</option>
+              <option value="hasta-36k">Hasta €36,000/año</option>
+              <option value="36k-60k">€36,000 - €60,000/año</option>
+              <option value="60k-120k">€60,000 - €120,000/año</option>
+              <option value="120k-200k">€120,000 - €200,000/año</option>
+              <option value="200k-500k">€200,000 - €500,000/año</option>
+              <option value="500k-plus">Más de €500,000/año</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">
+          Enviar y recibir las 2 guías gratis
+        </button>
+        <p class="form-note">Recibes los 2 PDFs por email al instante.</p>
+        <div id="form-message" class="form-message" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- 9. FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#" class="logo">Chipre</a>
+      <p>&copy; {new Date().getFullYear()} Chipre. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</Layout>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const message = document.getElementById("form-message") as HTMLDivElement;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector("button[type=submit]") as HTMLButtonElement;
+    btn.disabled = true;
+    btn.textContent = "Enviando...";
+    message.textContent = "";
+    message.className = "form-message";
+
+    const data = Object.fromEntries(new FormData(form));
+    const webhookUrl = form.dataset.webhook!;
+
+    try {
+      const res = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error("Error en el envío");
+
+      message.textContent = "¡Listo! Revisa tu bandeja de entrada. Te hemos enviado las guías.";
+      message.classList.add("success");
+      form.reset();
+    } catch {
+      message.textContent = "Ha ocurrido un error. Inténtalo de nuevo o escríbenos directamente.";
+      message.classList.add("error");
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Enviar y recibir las 2 guías gratis";
+    }
+  });
+</script>
+
+<style>
+  /* ==================== NAV ==================== */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(255, 251, 247, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--color-primary);
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover {
+    color: var(--color-text);
+  }
+
+  /* ==================== BUTTONS ==================== */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  .btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.05rem;
+  }
+  .btn-primary {
+    background: var(--color-primary);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(194, 89, 10, 0.25);
+  }
+  .btn-full {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 1rem;
+  }
+
+  /* ==================== CONTAINER ==================== */
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ==================== HERO ==================== */
+  .hero {
+    padding: 8rem 0 4rem;
+    text-align: center;
+    background: var(--color-warm-gradient);
+  }
+  .hero-inner {
+    max-width: 740px;
+    margin: 0 auto;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+  .highlight {
+    color: var(--color-primary);
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--color-text-light);
+    max-width: 580px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+  .hero-actions {
+    margin-bottom: 2.5rem;
+  }
+
+  /* Social proof */
+  .social-proof {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .social-proof-avatars {
+    display: flex;
+  }
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-bg);
+    margin-left: -8px;
+  }
+  .avatar:first-child {
+    margin-left: 0;
+  }
+  .social-proof p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    font-weight: 500;
+  }
+
+  /* ==================== SECTIONS ==================== */
+  .section {
+    padding: 5rem 0;
+  }
+  .section-alt {
+    background: var(--color-bg-alt);
+  }
+  .section-badge {
+    display: block;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    margin: 0 auto 1.25rem;
+    width: fit-content;
+  }
+  .section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 0.75rem;
+  }
+  .section-sub {
+    text-align: center;
+    color: var(--color-text-light);
+    max-width: 520px;
+    margin: 0 auto 3rem;
+  }
+
+  /* ==================== OLD WAY vs NEW WAY ==================== */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .way-card {
+    border-radius: 12px;
+    padding: 2rem;
+    border: 2px solid;
+  }
+  .way-old {
+    background: #fef8f6;
+    border-color: #f0c9be;
+  }
+  .way-new {
+    background: #f0fdf4;
+    border-color: #86efac;
+  }
+  .way-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+  }
+  .way-old .way-label {
+    background: #fee2e2;
+    color: #b91c1c;
+  }
+  .way-new .way-label {
+    background: #dcfce7;
+    color: #166534;
+  }
+  .way-card h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+  }
+  .way-sub {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 1.25rem;
+  }
+  .way-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .way-list li {
+    font-size: 0.9rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  .way-list li::before {
+    position: absolute;
+    left: 0;
+    font-size: 0.85rem;
+  }
+  .way-pain::before {
+    content: "\2716";
+    color: #dc2626;
+  }
+  .way-win::before {
+    content: "\2714";
+    color: #16a34a;
+  }
+
+  /* ==================== BENEFITS ==================== */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .benefit {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    transition: box-shadow 0.2s;
+  }
+  .benefit:hover {
+    box-shadow: 0 4px 24px rgba(139, 90, 43, 0.08);
+  }
+  .benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .benefit h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .benefit p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  /* ==================== HOW IT WORKS ==================== */
+  .steps {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .step {
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    max-width: 280px;
+    padding: 1.5rem;
+  }
+  .step-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .step-num {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+  .step h4 {
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+  }
+  .step p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+  }
+  .step-arrow {
+    font-size: 1.5rem;
+    color: var(--color-border);
+    padding-top: 2rem;
+    flex-shrink: 0;
+  }
+
+  /* ==================== DATA TABLE ==================== */
+  .table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+  }
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    background: var(--color-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+  }
+  .comparison-table th {
+    background: var(--color-primary);
+    color: #fff;
+    font-weight: 600;
+    padding: 0.85rem 1rem;
+    text-align: left;
+    font-size: 0.85rem;
+  }
+  .comparison-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .comparison-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  .comparison-table tbody tr:hover {
+    background: var(--color-primary-light);
+  }
+  .pct {
+    color: var(--color-text-light);
+    font-size: 0.8rem;
+  }
+  .winner {
+    font-weight: 600;
+    color: #166534;
+  }
+  .diff-positive {
+    font-weight: 700;
+    color: #166534;
+  }
+  .diff-neutral {
+    font-weight: 600;
+    color: var(--color-text-light);
+    font-size: 0.85rem;
+  }
+  .table-note {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+  .table-cta {
+    text-align: center;
+  }
+
+  /* ==================== FAQ ==================== */
+  .faq-list {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .faq-item {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .faq-item summary {
+    padding: 1.1rem 1.25rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.15s;
+  }
+  .faq-item summary:hover {
+    background: var(--color-bg-alt);
+  }
+  .faq-item summary::after {
+    content: "+";
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-text-light);
+    flex-shrink: 0;
+    margin-left: 1rem;
+  }
+  .faq-item[open] summary::after {
+    content: "\2212";
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item p {
+    padding: 0 1.25rem 1.1rem;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    line-height: 1.65;
+  }
+
+  /* ==================== FINAL CTA SECTION ==================== */
+  .section-cta {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 5rem 0;
+  }
+  .cta-title {
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 0.75rem;
+    color: #fff;
+  }
+  .cta-sub {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+    font-size: 1.05rem;
+  }
+
+  /* ==================== FORM ==================== */
+  .form {
+    max-width: 560px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 2rem;
+    color: var(--color-text);
+  }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+  .form-group input,
+  .form-group select {
+    padding: 0.7rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-family: var(--font-family);
+    font-size: 0.9rem;
+    color: var(--color-text);
+    background: #fff;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+  }
+  .form-note {
+    text-align: center;
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+  }
+  .form-message {
+    text-align: center;
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    min-height: 1.4em;
+  }
+  .form-message.success {
+    color: #059669;
+  }
+  .form-message.error {
+    color: #dc2626;
+  }
+
+  /* ==================== FOOTER ==================== */
+  .footer {
+    padding: 2rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer p {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+  }
+
+  /* ==================== RESPONSIVE ==================== */
+  @media (max-width: 640px) {
+    .nav-links {
+      gap: 0.75rem;
+      font-size: 0.8rem;
+    }
+    .nav-links li:not(:last-child) {
+      display: none;
+    }
+    .comparison-grid {
+      grid-template-columns: 1fr;
+    }
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+    .step-arrow {
+      display: none;
+    }
+    .steps {
+      flex-direction: column;
+      align-items: center;
+    }
+    .footer-inner {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  }
+</style>

@@ -1,0 +1,75 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Te ayudamos con todos los trámites para vivir y trabajar en Chipre. Autónomos, empresas y consultoría." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --color-primary: #c2590a;
+    --color-primary-dark: #a14808;
+    --color-primary-light: #fef3e2;
+    --color-accent: #d97706;
+    --color-text: #3b2314;
+    --color-text-light: #7a6455;
+    --color-bg: #fffbf7;
+    --color-bg-alt: #fdf5ed;
+    --color-border: #e8ddd3;
+    --color-warm-gradient: linear-gradient(135deg, #fdf5ed 0%, #fef3e2 50%, #fff7ed 100%);
+    --font-family: "Inter", system-ui, sans-serif;
+    --max-width: 1120px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-family);
+    color: var(--color-text);
+    background: var(--color-bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+</style>
