@@ -1,5 +1,5 @@
 {
-  "name": "Chipre - Form to Sheets + Send Guides",
+  "name": "Chipre - Form to Sheets + MailerLite",
   "nodes": [
     {
       "parameters": {
@@ -91,27 +91,36 @@
     },
     {
       "parameters": {
-        "fromEmail": "YOUR_FROM_EMAIL@domain.com",
-        "toEmail": "={{ $('Set Fields').item.json.email }}",
-        "subject": "Tu análisis Chipre vs Andorra 2026 + Guía de reubicación",
-        "emailType": "html",
-        "html": "<div style=\"font-family: 'Inter', Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #3b2314;\">\n  <div style=\"background: linear-gradient(135deg, #fdf5ed, #fef3e2); padding: 2rem; border-radius: 12px 12px 0 0;\">\n    <h1 style=\"color: #c2590a; margin: 0 0 0.5rem;\">¡Hola {{ $('Set Fields').item.json.nombre }}!</h1>\n    <p style=\"margin: 0; color: #7a6455;\">Aquí tienes tus guías gratuitas.</p>\n  </div>\n  <div style=\"padding: 2rem; background: #fffbf7; border: 1px solid #e8ddd3; border-top: none; border-radius: 0 0 12px 12px;\">\n    <p>Tal como te prometimos, adjuntamos los 2 documentos:</p>\n    <ol style=\"color: #7a6455; line-height: 1.8;\">\n      <li><strong>Análisis completo Chipre vs Andorra 2026</strong> — Comparativa fiscal + coste de vida real</li>\n      <li><strong>Guía de reubicación a Chipre</strong> — Todo lo que necesitas para dar el salto</li>\n    </ol>\n    <p style=\"margin-top: 1.5rem;\">Si tienes cualquier duda o quieres que analicemos tu caso concreto, responde a este email y te ayudamos sin compromiso.</p>\n    <p style=\"margin-top: 1.5rem; color: #7a6455; font-size: 0.9em;\">Un saludo,<br><strong>Equipo Chipre</strong></p>\n  </div>\n</div>",
-        "options": {
-          "attachments": "analisis-chipre-vs-andorra-2026.pdf,guia-reubicacion-chipre.pdf"
-        }
+        "method": "POST",
+        "url": "https://connect.mailerlite.com/api/subscribers",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"email\": \"{{ $('Set Fields').item.json.email }}\",\n  \"fields\": {\n    \"name\": \"{{ $('Set Fields').item.json.nombre }}\",\n    \"phone\": \"{{ $('Set Fields').item.json.telefono }}\",\n    \"company\": \"{{ $('Set Fields').item.json.ingresos }}\"\n  },\n  \"groups\": [\"YOUR_MAILERLITE_GROUP_ID\"]\n}",
+        "options": {}
       },
-      "id": "send-email-node",
-      "name": "Send Email with Guides",
-      "type": "n8n-nodes-base.emailSend",
-      "typeVersion": 2.1,
+      "id": "mailerlite-add-subscriber",
+      "name": "MailerLite - Add Subscriber",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
       "position": [910, 300],
       "credentials": {
-        "smtp": {
-          "id": "YOUR_SMTP_CREDENTIAL_ID",
-          "name": "SMTP account"
+        "httpHeaderAuth": {
+          "id": "YOUR_MAILERLITE_CREDENTIAL_ID",
+          "name": "MailerLite API"
         }
       },
-      "notes": "Configure SMTP credentials and place the 2 PDF files in the n8n files directory: analisis-chipre-vs-andorra-2026.pdf and guia-reubicacion-chipre.pdf"
+      "notes": "Create an HTTP Header Auth credential in n8n with: Name=Authorization, Value=Bearer YOUR_MAILERLITE_API_KEY. Replace YOUR_MAILERLITE_GROUP_ID with the group ID that triggers your automation."
     },
     {
       "parameters": {
@@ -153,14 +162,14 @@
       "main": [
         [
           {
-            "node": "Send Email with Guides",
+            "node": "MailerLite - Add Subscriber",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Send Email with Guides": {
+    "MailerLite - Add Subscriber": {
       "main": [
         [
           {

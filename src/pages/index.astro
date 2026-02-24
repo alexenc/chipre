@@ -1,7 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-const N8N_WEBHOOK_URL = import.meta.env.PUBLIC_N8N_WEBHOOK_URL ?? "https://YOUR-N8N-INSTANCE.com/webhook/chipre-form";
 ---
 
 <Layout title="Chipre — Análisis fiscal Chipre vs Andorra 2026 + Guía de reubicación">
@@ -230,7 +228,7 @@ const N8N_WEBHOOK_URL = import.meta.env.PUBLIC_N8N_WEBHOOK_URL ?? "https://YOUR-
         Comparativa fiscal Chipre vs Andorra 2026 + Guía de reubicación a Chipre.
         Directamente en tu email. Sin spam.
       </p>
-      <form id="contact-form" class="form" data-webhook={N8N_WEBHOOK_URL}>
+      <form id="contact-form" class="form">
         <div class="form-grid">
           <div class="form-group">
             <label for="nombre">Nombre completo</label>
@@ -288,7 +286,7 @@ const N8N_WEBHOOK_URL = import.meta.env.PUBLIC_N8N_WEBHOOK_URL ?? "https://YOUR-
     message.className = "form-message";
 
     const data = Object.fromEntries(new FormData(form));
-    const webhookUrl = form.dataset.webhook!;
+    const webhookUrl = "/submit";
 
     try {
       const res = await fetch(webhookUrl, {
