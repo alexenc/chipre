@@ -9,5 +9,7 @@ services:
   server:
     build: ./server
     environment:
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - FROM_EMAIL=${FROM_EMAIL}
       - GOOGLE_SHEET_ID=${GOOGLE_SHEET_ID}
       - GOOGLE_SERVICE_ACCOUNT_KEY=${GOOGLE_SERVICE_ACCOUNT_KEY}
